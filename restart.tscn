@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmehy43qc2rsq"]
+
+[sub_resource type="SystemFont" id="SystemFont_qnkmd"]
+font_names = PackedStringArray("Elephant")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkdak"]
+bg_color = Color(0.0627451, 0.698039, 0.937255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbh48"]
+bg_color = Color(0.0235294, 0.113725, 0.329412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncdh7"]
+bg_color = Color(0.0235294, 0.113725, 0.329412, 1)
+
+[node name="Restart" type="CanvasLayer"]
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 1758.0
+offset_top = 19.0
+offset_right = 1899.0
+offset_bottom = 82.0
+theme_override_fonts/font = SubResource("SystemFont_qnkmd")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rkdak")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vbh48")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ncdh7")
+text = " Quit "

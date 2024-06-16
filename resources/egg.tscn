@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://bp6qbqaykxis0"]
+
+[ext_resource type="Script" path="res://resources/egg.gd" id="1_nr58e"]
+[ext_resource type="Texture2D" uid="uid://cb8frxxkkycmp" path="res://characters/happy_boo/egg.png" id="2_vsdwo"]
+[ext_resource type="Texture2D" uid="uid://c3pvgeylbabtl" path="res://characters/happy_boo/eggsplash.png" id="3_280ds"]
+[ext_resource type="Script" path="res://resources/EggBody.gd" id="4_o2foi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fdfyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vsdwo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_280ds")
+}],
+"loop": true,
+"name": &"splash",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o0k68"]
+radius = 52.3333
+height = 106.667
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fh60o"]
+radius = 80.0
+
+[node name="Egg" type="CharacterBody2D"]
+z_index = 1200
+scale = Vector2(0.3, 0.3)
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("1_nr58e")
+
+[node name="EggBody" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9.53674e-07, 0)
+scale = Vector2(0.914474, 0.852273)
+sprite_frames = SubResource("SpriteFrames_fdfyl")
+script = ExtResource("4_o2foi")
+
+[node name="Coll" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_o0k68")
+
+[node name="SplashTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_fh60o")
+
+[connection signal="timeout" from="SplashTimer" to="." method="_on_splash_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

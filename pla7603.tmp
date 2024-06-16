@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxicqjek7gvd3"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_uxvxj"]
+[ext_resource type="Texture2D" uid="uid://b2aprbcdausug" path="res://characters/happy_boo/kip_staand.png" id="3_f56wq"]
+[ext_resource type="Script" path="res://characters/happy_boo/happy_boo.gd" id="4_d3e5b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_25ecc"]
+radius = 81.0555
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(204, 129)
+script = ExtResource("1_uxvxj")
+
+[node name="KipStaand" type="Sprite2D" parent="."]
+position = Vector2(-209, -136)
+scale = Vector2(0.384259, 0.347222)
+texture = ExtResource("3_f56wq")
+script = ExtResource("4_d3e5b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-210, -136)
+shape = SubResource("CircleShape2D_25ecc")

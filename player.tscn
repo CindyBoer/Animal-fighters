@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxicqjek7gvd3"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_uxvxj"]
+[ext_resource type="SpriteFrames" uid="uid://bggikj776rrct" path="res://resources/kipAni.tres" id="2_6ad7p"]
+[ext_resource type="Script" path="res://characters/happy_boo/happy_boo.gd" id="4_d3e5b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_25ecc"]
+radius = 63.0079
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iot6f"]
+radius = 62.9682
+
+[sub_resource type="SystemFont" id="SystemFont_0lbys"]
+font_names = PackedStringArray("Elephant")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycr51"]
+bg_color = Color(0.0627451, 0.698039, 0.937255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qcqd"]
+bg_color = Color(0.0235294, 0.113725, 0.329412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dx5f1"]
+bg_color = Color(0.0235294, 0.113725, 0.329412, 1)
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 100
+position = Vector2(-1, 1)
+collision_mask = 10
+script = ExtResource("1_uxvxj")
+
+[node name="KipStaand" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = ExtResource("2_6ad7p")
+animation = &"idle"
+script = ExtResource("4_d3e5b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2)
+shape = SubResource("CircleShape2D_25ecc")
+
+[node name="ShootTimeout" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-2, -3)
+shape = SubResource("CircleShape2D_iot6f")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Quit" type="Button" parent="CanvasLayer"]
+offset_left = 1757.0
+offset_top = 20.0
+offset_right = 1898.0
+offset_bottom = 83.0
+theme_override_fonts/font = SubResource("SystemFont_0lbys")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_ycr51")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0qcqd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dx5f1")
+text = " Quit "
+
+[connection signal="timeout" from="ShootTimeout" to="." method="_on_shoot_timeout_timeout"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="pressed" from="CanvasLayer/Quit" to="." method="_on_quit_pressed"]

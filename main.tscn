@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnsowbsabdoct"]
+
+[ext_resource type="Script" path="res://Node.gd" id="1_wbp7y"]
+[ext_resource type="PackedScene" uid="uid://b5uebk0looagt" path="res://menu.tscn" id="2_j575b"]
+[ext_resource type="PackedScene" uid="uid://cnfqrxyqqbhb" path="res://game_over.tscn" id="4_6yujp"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_wbp7y")
+
+[node name="Menu" parent="." instance=ExtResource("2_j575b")]
+
+[node name="Game_over" parent="." instance=ExtResource("4_6yujp")]
+
+[node name="SubViewport" type="SubViewport" parent="."]

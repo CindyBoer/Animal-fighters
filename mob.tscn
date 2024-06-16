@@ -1,0 +1,196 @@
+[gd_scene load_steps=20 format=3 uid="uid://kwv680jpfcgv"]
+
+[ext_resource type="Script" path="res://mob.gd" id="1_drjok"]
+[ext_resource type="Texture2D" uid="uid://bac8bdoeb6lv3" path="res://characters/wolf/wolf.png" id="1_mjpst"]
+[ext_resource type="Script" path="res://AnimatedSprite2D.gd" id="2_s1lug"]
+[ext_resource type="Texture2D" uid="uid://00736pcpc2wc" path="res://characters/wolf/RodeWolf_staand.png" id="2_u57an"]
+[ext_resource type="Texture2D" uid="uid://dvk5pobj2pvh0" path="res://characters/wolf/Wolf_lopen1.png" id="3_8thi4"]
+[ext_resource type="Texture2D" uid="uid://b4k0d6vtelijv" path="res://characters/wolf/Wolf_lopen2.png" id="4_1jmy4"]
+[ext_resource type="Script" path="res://treeDetect.gd" id="7_xi3wo"]
+[ext_resource type="Script" path="res://detectArea.gd" id="8_7cwux"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lu6e0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mjpst")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u57an")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8thi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1jmy4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovvyd"]
+radius = 75.0
+height = 160.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6urdk"]
+size = Vector2(108.375, 50.0625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddj1s"]
+size = Vector2(51.9375, 57.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewny7"]
+size = Vector2(64.25, 58.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f72ws"]
+size = Vector2(48.1875, 51.4063)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rf25"]
+size = Vector2(122.391, 63.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nrghh"]
+size = Vector2(58.7813, 47.2188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxsvo"]
+size = Vector2(32.2033, 54.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gf17l"]
+size = Vector2(41.5, 43.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tnhwy"]
+radius = 102.0
+height = 218.0
+
+[node name="Mob" type="CharacterBody2D"]
+z_index = 100
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_drjok")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -7)
+scale = Vector2(0.474, 0.442)
+sprite_frames = SubResource("SpriteFrames_lu6e0")
+animation = &"hit"
+frame_progress = 0.0498756
+script = ExtResource("2_s1lug")
+
+[node name="replacing" type="ColorRect" parent="."]
+visible = false
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 53.0
+offset_bottom = 46.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -5)
+shape = SubResource("CapsuleShape2D_ovvyd")
+
+[node name="treeDetect" type="Node2D" parent="."]
+script = ExtResource("7_xi3wo")
+
+[node name="N" type="Area2D" parent="treeDetect"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_7cwux")
+dir = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="treeDetect/N"]
+position = Vector2(-7.1875, -63.9688)
+shape = SubResource("RectangleShape2D_6urdk")
+
+[node name="NW" type="Area2D" parent="treeDetect"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_7cwux")
+dir = Vector2(-1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="treeDetect/NW"]
+position = Vector2(-77, -41)
+shape = SubResource("RectangleShape2D_ddj1s")
+
+[node name="W" type="Area2D" parent="treeDetect"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_7cwux")
+dir = Vector2(-1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="treeDetect/W"]
+position = Vector2(-79, 11)
+shape = SubResource("RectangleShape2D_ewny7")
+
+[node name="ZW" type="Area2D" parent="treeDetect"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_7cwux")
+dir = Vector2(-1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="treeDetect/ZW"]
+position = Vector2(-71.0938, 49.2969)
+shape = SubResource("RectangleShape2D_f72ws")
+
+[node name="Z" type="Area2D" parent="treeDetect"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_7cwux")
+dir = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="treeDetect/Z"]
+position = Vector2(-1, 51)
+shape = SubResource("RectangleShape2D_5rf25")
+
+[node name="ZO" type="Area2D" parent="treeDetect"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_7cwux")
+dir = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="treeDetect/ZO"]
+position = Vector2(46, 39)
+shape = SubResource("RectangleShape2D_nrghh")
+
+[node name="O" type="Area2D" parent="treeDetect"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_7cwux")
+dir = Vector2(1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="treeDetect/O"]
+position = Vector2(60.8984, -3.25)
+shape = SubResource("RectangleShape2D_cxsvo")
+
+[node name="NO" type="Area2D" parent="treeDetect"]
+position = Vector2(-74, 352)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_7cwux")
+dir = Vector2(1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="treeDetect/NO"]
+position = Vector2(142, -393)
+shape = SubResource("RectangleShape2D_gf17l")
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-8, -4)
+shape = SubResource("CapsuleShape2D_tnhwy")
+
+[node name="deadTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_shape_entered" from="hitbox" to="." method="_on_hitbox_body_shape_entered"]
+[connection signal="timeout" from="deadTimer" to="." method="_on_dead_timer_timeout"]

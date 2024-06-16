@@ -1,0 +1,27 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://ch1qlpsi4b2fd"]
+
+[ext_resource type="Texture2D" uid="uid://cp5g4ana028qu" path="res://characters/happy_boo/koestaand.png" id="1_2xlpw"]
+[ext_resource type="Texture2D" uid="uid://70l3nri1owde" path="res://characters/happy_boo/koeloop.png" id="1_46te8"]
+[ext_resource type="Texture2D" uid="uid://btsyb1xbtfklt" path="res://characters/happy_boo/koeloop2.png" id="2_pghph"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2xlpw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_46te8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pghph")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]

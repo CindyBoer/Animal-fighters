@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5uebk0looagt"]
+
+[ext_resource type="Texture2D" uid="uid://b2aprbcdausug" path="res://characters/happy_boo/kip_staand.png" id="1_3c048"]
+[ext_resource type="Script" path="res://menu.gd" id="1_f3bwm"]
+[ext_resource type="Texture2D" uid="uid://cp5g4ana028qu" path="res://characters/happy_boo/koestaand.png" id="2_o4x1x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bccpd"]
+bg_color = Color(0.329412, 0.686275, 0.45098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbt1b"]
+bg_color = Color(0.0941176, 0.682353, 0.690196, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f3bwm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.117647, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/TitleContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 150
+text = "Farm_animal Fighters"
+
+[node name="SelectContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="KipContainer" type="VBoxContainer" parent="VBoxContainer/SelectContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/SelectContainer/KipContainer"]
+layout_mode = 2
+texture = ExtResource("1_3c048")
+
+[node name="selectButton" type="Button" parent="VBoxContainer/SelectContainer/KipContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_bccpd")
+text = "Select"
+
+[node name="KoeContainer" type="VBoxContainer" parent="VBoxContainer/SelectContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/SelectContainer/KoeContainer"]
+layout_mode = 2
+texture = ExtResource("2_o4x1x")
+
+[node name="selectButton" type="Button" parent="VBoxContainer/SelectContainer/KoeContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Select"
+
+[node name="PlayContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="playButton" type="Button" parent="VBoxContainer/PlayContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_gbt1b")
+text = "Play"
+
+[connection signal="pressed" from="VBoxContainer/PlayContainer/playButton" to="." method="_on_play_button_pressed"]

@@ -1,0 +1,14 @@
+CollisionShape2D
+Area2D
+Timer
+AnimatedSprite2D
+CharacterBody2D
+TextureRect
+StaticBody2D
+ColorRect
+CanvasLayer
+Button
+Sprite2D
+Marker2D
+Node2D
+VBoxContainer

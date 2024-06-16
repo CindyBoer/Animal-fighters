@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://41v7ammxlwcn"]
+
+[ext_resource type="Texture2D" uid="uid://djaoi42cm4d82" path="res://characters/happy_boo/Gras.png" id="1_tbr73"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrltx"]
+size = Vector2(71, 12.75)
+
+[node name="Gras" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="Gras" type="Sprite2D" parent="."]
+position = Vector2(-2.00001, -1.52588e-05)
+scale = Vector2(0.438406, 0.478261)
+texture = ExtResource("1_tbr73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 20.375)
+shape = SubResource("RectangleShape2D_jrltx")

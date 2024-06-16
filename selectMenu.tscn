@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dltnh727vvign"]
+
+[ext_resource type="Texture2D" uid="uid://b2aprbcdausug" path="res://characters/happy_boo/kip_staand.png" id="1_5vhsl"]
+[ext_resource type="Texture2D" uid="uid://cp5g4ana028qu" path="res://characters/happy_boo/koestaand.png" id="2_2kbja"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bccpd"]
+bg_color = Color(0.329412, 0.686275, 0.45098, 1)
+
+[node name="SelectContainer" type="HBoxContainer"]
+size_flags_vertical = 4
+alignment = 1
+
+[node name="KipContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="KipContainer"]
+layout_mode = 2
+texture = ExtResource("1_5vhsl")
+
+[node name="selectButton" type="Button" parent="KipContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_bccpd")
+text = "Select"
+
+[node name="KoeContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="KoeContainer"]
+layout_mode = 2
+texture = ExtResource("2_2kbja")
+
+[node name="selectButton" type="Button" parent="KoeContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Select"

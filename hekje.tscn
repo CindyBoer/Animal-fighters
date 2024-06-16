@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://4wx7xienkygq"]
+
+[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/happy_boo/ground_shadow.png" id="1_4ljvj"]
+[ext_resource type="Texture2D" uid="uid://b76o3n5nbfm08" path="res://characters/happy_boo/hekje.png" id="2_agguc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bppxc"]
+size = Vector2(1299, 118)
+
+[node name="Hekje" type="StaticBody2D"]
+position = Vector2(0, 4)
+collision_layer = 2
+collision_mask = 0
+
+[node name="GroundShadow" type="Sprite2D" parent="."]
+modulate = Color(0.500849, 0.703167, 0.243542, 1)
+position = Vector2(435.001, -5.5)
+scale = Vector2(10.4524, 1.32692)
+texture = ExtResource("1_4ljvj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(447, -127)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_agguc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(408.5, -170)
+shape = SubResource("RectangleShape2D_bppxc")

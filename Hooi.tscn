@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjxe2pmsmlrhu"]
+
+[ext_resource type="Texture2D" uid="uid://cb7i01ngstxrd" path="res://characters/happy_boo/Hooi.png" id="1_83mqt"]
+[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/happy_boo/ground_shadow.png" id="1_doxem"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4vbv"]
+size = Vector2(295, 85.9063)
+
+[node name="hooi" type="StaticBody2D"]
+z_index = 1000
+collision_layer = 2
+collision_mask = 0
+
+[node name="GroundShadow" type="Sprite2D" parent="."]
+modulate = Color(0.422663, 0.596041, 0.202595, 1)
+position = Vector2(2, 85)
+scale = Vector2(3.4881, 1.30048)
+texture = ExtResource("1_doxem")
+
+[node name="Hooi" type="Sprite2D" parent="."]
+position = Vector2(5, 22)
+scale = Vector2(0.544625, 0.477642)
+texture = ExtResource("1_83mqt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1000
+position = Vector2(1.5, 78.0469)
+shape = SubResource("RectangleShape2D_v4vbv")

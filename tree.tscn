@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://o5gu2fi2f6e1"]
+
+[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/happy_boo/ground_shadow.png" id="1_rv3kc"]
+[ext_resource type="Texture2D" uid="uid://dc3svs4o52f6y" path="res://characters/happy_boo/Appelboom.png" id="2_yh3r5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n5vy"]
+size = Vector2(384.996, 75.11)
+
+[node name="Tree" type="StaticBody2D"]
+z_index = 1000
+position = Vector2(11, 17)
+collision_layer = 2
+collision_mask = 0
+
+[node name="GroundShadow" type="Sprite2D" parent="."]
+modulate = Color(0.423529, 0.596078, 0.203922, 1)
+position = Vector2(-16, 64)
+scale = Vector2(2.85714, 0.673077)
+texture = ExtResource("1_rv3kc")
+
+[node name="Appelboom" type="Sprite2D" parent="."]
+position = Vector2(-1, -85)
+scale = Vector2(0.906061, 0.642156)
+texture = ExtResource("2_yh3r5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-17, 35)
+rotation = -3.14159
+scale = Vector2(0.628578, 1.22487)
+shape = SubResource("RectangleShape2D_3n5vy")

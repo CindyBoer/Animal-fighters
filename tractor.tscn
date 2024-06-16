@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxsi4ijggy1so"]
+
+[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/happy_boo/ground_shadow.png" id="1_q57fy"]
+[ext_resource type="Texture2D" uid="uid://dbcnf88j0nip6" path="res://characters/happy_boo/Tractor.png" id="1_vweq3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6htm2"]
+size = Vector2(364, 161)
+
+[node name="Tractor" type="StaticBody2D"]
+z_index = 1000
+collision_layer = 2
+collision_mask = 0
+
+[node name="GroundShadow" type="Sprite2D" parent="."]
+modulate = Color(0.423529, 0.596078, 0.203922, 1)
+position = Vector2(-6, 95)
+scale = Vector2(4.30655, 2.83173)
+texture = ExtResource("1_q57fy")
+
+[node name="Tractor" type="Sprite2D" parent="."]
+position = Vector2(2, -2)
+scale = Vector2(0.720414, 0.699187)
+texture = ExtResource("1_vweq3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 85)
+shape = SubResource("RectangleShape2D_6htm2")
